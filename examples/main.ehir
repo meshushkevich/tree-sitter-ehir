@@ -1,1 +1,13 @@
-fn main() -> i32 {}
+imp std::io
+
+
+fn main() -> i32 {
+    entry {
+        a = capa 0_i32
+        b = add a, b : i16
+        br final
+    }
+    final {
+        ret a
+    }
+}
