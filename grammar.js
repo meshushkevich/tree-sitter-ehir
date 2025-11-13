@@ -117,7 +117,7 @@ module.exports = grammar({
     block: ($) =>
       seq(field("label", $.block_label), ":", repeat($._instruction)),
     block_label: ($) => seq("$", field("name", $.identifier)),
-    param: ($) => seq($.identifier, ":", $.type),
+    param: ($) => seq(field("name", $.identifier), ":", field("type", $.type)),
     comment: ($) => /;.*/,
     _instruction: ($) =>
       choice(

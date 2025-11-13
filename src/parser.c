@@ -8990,7 +8990,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [949] = {.entry = {.count = 1, .reusable = true}}, SHIFT(36),
   [951] = {.entry = {.count = 1, .reusable = true}}, SHIFT(37),
   [953] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_instruction_switch_repeat1, 3, 0, 0),
-  [955] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_param, 3, 0, 0),
+  [955] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_param, 3, 0, 21),
   [957] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_instruction_match_repeat2, 5, 0, 0),
   [959] = {.entry = {.count = 1, .reusable = true}}, SHIFT(353),
   [961] = {.entry = {.count = 1, .reusable = true}}, SHIFT(155),
