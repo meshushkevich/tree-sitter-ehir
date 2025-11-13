@@ -331,21 +331,8 @@
               {
                 "type": "REPEAT",
                 "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "instruction_c_like_struct"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "instruction_tuple_like_struct"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "instruction_unit_like_struct"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "enum_variant"
                 }
               },
               {
@@ -2170,6 +2157,23 @@
               }
             ]
           }
+        }
+      ]
+    },
+    "enum_variant": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "instruction_c_like_struct"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "instruction_tuple_like_struct"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "instruction_unit_like_struct"
         }
       ]
     }

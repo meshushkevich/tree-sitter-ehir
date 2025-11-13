@@ -61,20 +61,7 @@ module.exports = grammar({
         "enum",
         field("name", $.identifier),
         field("generics", optional($.generic_params)),
-        field(
-          "body",
-          seq(
-            "{",
-            repeat(
-              choice(
-                $.instruction_c_like_struct,
-                $.instruction_tuple_like_struct,
-                $.instruction_unit_like_struct,
-              ),
-            ),
-            "}",
-          ),
-        ),
+        field("body", seq("{", repeat($.enum_variant), "}")),
       ),
 
     instruction_fn: ($) =>
@@ -294,6 +281,12 @@ module.exports = grammar({
         "::",
         field("variant", $.identifier),
         field("args", optional(seq("(", commaSep($._any_variable), ")"))),
+      ),
+    enum_variant: ($) =>
+      choice(
+        $.instruction_c_like_struct,
+        $.instruction_tuple_like_struct,
+        $.instruction_unit_like_struct,
       ),
   },
 });
