@@ -10,7 +10,7 @@
   next: Option[ListNode<H>[T]]
 }
 
-; ...
+; Creates a node
 fn @create_new_node[T](value: T) -> ListNode<H> {
   $entry:
     some_val = cape Option[T]::Some(value)
@@ -36,28 +36,28 @@ fn main() -> i32 {
     ;                           /--->---\
     ; Create linked list like: A         B
     ;                           \---<---/
-    br capture_values
+    br $capture_values
 
   $capture_values:
     A_val : u16 = capa 0_u16
     B_val : u16 = capa 1_u16
-    br define_head
+    br $define_head
 
   $define_head:
     A = call create_new_node(A_val)
     B = call append_node(A, B_val)
-    br make_loop
+    br $make_loop
 
   $make_loop:
     B_next_ptr = getfieldptr B::next
     A_some = cape Option::Some(A)
     A_some_ptr = getptr A_some
     store B_next_ptr, A_ptr
-    br check_sum_of_values
+    br $check_sum_of_values
 
   $check_sum_of_values:
     sum = add A_val, B_val
-    cbr sum, good_result, bad_result
+    cbr sum, $good_result, $bad_result
 
   $good_result:
     zero = capa 0_i32
@@ -66,5 +66,4 @@ fn main() -> i32 {
   $bad_result:
     dead = capa 0xDEADDEAD_i32
     ret dead
-
 }

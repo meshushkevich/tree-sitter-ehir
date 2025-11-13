@@ -22,144 +22,6 @@
     "type": "block",
     "named": true,
     "fields": {
-      "body": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "insrtuction_cape",
-            "named": true
-          },
-          {
-            "type": "instruction_add",
-            "named": true
-          },
-          {
-            "type": "instruction_and",
-            "named": true
-          },
-          {
-            "type": "instruction_br",
-            "named": true
-          },
-          {
-            "type": "instruction_call",
-            "named": true
-          },
-          {
-            "type": "instruction_capa",
-            "named": true
-          },
-          {
-            "type": "instruction_capeh",
-            "named": true
-          },
-          {
-            "type": "instruction_caps",
-            "named": true
-          },
-          {
-            "type": "instruction_capsh",
-            "named": true
-          },
-          {
-            "type": "instruction_cast",
-            "named": true
-          },
-          {
-            "type": "instruction_cbr",
-            "named": true
-          },
-          {
-            "type": "instruction_div",
-            "named": true
-          },
-          {
-            "type": "instruction_geq",
-            "named": true
-          },
-          {
-            "type": "instruction_getfieldptr",
-            "named": true
-          },
-          {
-            "type": "instruction_getptr",
-            "named": true
-          },
-          {
-            "type": "instruction_grt",
-            "named": true
-          },
-          {
-            "type": "instruction_ieq",
-            "named": true
-          },
-          {
-            "type": "instruction_leq",
-            "named": true
-          },
-          {
-            "type": "instruction_les",
-            "named": true
-          },
-          {
-            "type": "instruction_load",
-            "named": true
-          },
-          {
-            "type": "instruction_lsh",
-            "named": true
-          },
-          {
-            "type": "instruction_match",
-            "named": true
-          },
-          {
-            "type": "instruction_mul",
-            "named": true
-          },
-          {
-            "type": "instruction_neq",
-            "named": true
-          },
-          {
-            "type": "instruction_not",
-            "named": true
-          },
-          {
-            "type": "instruction_or",
-            "named": true
-          },
-          {
-            "type": "instruction_rem",
-            "named": true
-          },
-          {
-            "type": "instruction_ret",
-            "named": true
-          },
-          {
-            "type": "instruction_rsh",
-            "named": true
-          },
-          {
-            "type": "instruction_store",
-            "named": true
-          },
-          {
-            "type": "instruction_sub",
-            "named": true
-          },
-          {
-            "type": "instruction_switch",
-            "named": true
-          },
-          {
-            "type": "instruction_xor",
-            "named": true
-          }
-        ]
-      },
       "label": {
         "multiple": false,
         "required": true,
@@ -170,6 +32,144 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "insrtuction_cape",
+          "named": true
+        },
+        {
+          "type": "instruction_add",
+          "named": true
+        },
+        {
+          "type": "instruction_and",
+          "named": true
+        },
+        {
+          "type": "instruction_br",
+          "named": true
+        },
+        {
+          "type": "instruction_call",
+          "named": true
+        },
+        {
+          "type": "instruction_capa",
+          "named": true
+        },
+        {
+          "type": "instruction_capeh",
+          "named": true
+        },
+        {
+          "type": "instruction_caps",
+          "named": true
+        },
+        {
+          "type": "instruction_capsh",
+          "named": true
+        },
+        {
+          "type": "instruction_cast",
+          "named": true
+        },
+        {
+          "type": "instruction_cbr",
+          "named": true
+        },
+        {
+          "type": "instruction_div",
+          "named": true
+        },
+        {
+          "type": "instruction_geq",
+          "named": true
+        },
+        {
+          "type": "instruction_getfieldptr",
+          "named": true
+        },
+        {
+          "type": "instruction_getptr",
+          "named": true
+        },
+        {
+          "type": "instruction_grt",
+          "named": true
+        },
+        {
+          "type": "instruction_ieq",
+          "named": true
+        },
+        {
+          "type": "instruction_leq",
+          "named": true
+        },
+        {
+          "type": "instruction_les",
+          "named": true
+        },
+        {
+          "type": "instruction_load",
+          "named": true
+        },
+        {
+          "type": "instruction_lsh",
+          "named": true
+        },
+        {
+          "type": "instruction_match",
+          "named": true
+        },
+        {
+          "type": "instruction_mul",
+          "named": true
+        },
+        {
+          "type": "instruction_neq",
+          "named": true
+        },
+        {
+          "type": "instruction_not",
+          "named": true
+        },
+        {
+          "type": "instruction_or",
+          "named": true
+        },
+        {
+          "type": "instruction_rem",
+          "named": true
+        },
+        {
+          "type": "instruction_ret",
+          "named": true
+        },
+        {
+          "type": "instruction_rsh",
+          "named": true
+        },
+        {
+          "type": "instruction_store",
+          "named": true
+        },
+        {
+          "type": "instruction_sub",
+          "named": true
+        },
+        {
+          "type": "instruction_switch",
+          "named": true
+        },
+        {
+          "type": "instruction_xor",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -399,7 +399,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "block_label",
             "named": true
           }
         ]
@@ -677,7 +677,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "block_label",
             "named": true
           }
         ]
@@ -687,7 +687,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "block_label",
             "named": true
           }
         ]
@@ -1604,7 +1604,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "block_label",
             "named": true
           }
         ]
@@ -1629,7 +1629,7 @@
       "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "block_label",
           "named": true
         }
       ]

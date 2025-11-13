@@ -106,7 +106,7 @@ module.exports = grammar({
       ),
 
     visibility_modifier: ($) => "@",
-    identifier: ($) => /[-a-zA-Z$._][-a-zA-Z$._0-9]*/,
+    identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
     parameters: ($) => seq("(", commaSep($.param), ")"),
     type: ($) =>
       seq(
@@ -115,8 +115,8 @@ module.exports = grammar({
         field("generic_args", optional(seq("[", commaSep($.type), "]"))),
       ),
     block: ($) =>
-      seq(field("label", $.block_label), field("body", repeat($._instruction))),
-    block_label: ($) => seq("$", field("name", $.identifier), ":"),
+      seq(field("label", $.block_label), ":", repeat($._instruction)),
+    block_label: ($) => seq("$", field("name", $.identifier)),
     param: ($) => seq($.identifier, ":", $.type),
     comment: ($) => /;.*/,
     _instruction: ($) =>
@@ -225,15 +225,15 @@ module.exports = grammar({
     instruction_cast: ($) =>
       seq($._assignable, "cast", $._any_variable, $.type),
 
-    instruction_br: ($) => seq("br", field("label", $.identifier)),
+    instruction_br: ($) => seq("br", field("label", $.block_label)),
     instruction_cbr: ($) =>
       seq(
         "cbr",
         field("condition", $._any_variable),
         ",",
-        field("true_br", $.identifier),
+        field("true_br", $.block_label),
         ",",
-        field("else_br", $.identifier),
+        field("else_br", $.block_label),
       ),
     instruction_ret: ($) => seq("ret", field("variable", $._any_variable)),
     instruction_switch: ($) =>
@@ -241,9 +241,9 @@ module.exports = grammar({
         "switch",
         field("variable", $._any_variable),
         ",",
-        field("default", $.identifier),
+        field("default", $.block_label),
         "{",
-        repeat(seq(/\d+/, "=>", $.identifier)),
+        repeat(seq(/\d+/, "=>", $.block_label)),
         "}",
       ),
     instruction_match: ($) =>
